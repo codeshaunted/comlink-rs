@@ -1,0 +1,22 @@
+[package]
+name = "dinput8"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+env_logger = "0.11.8"
+log = "0.4.28"
+retour = { git = "https://github.com/Hpmason/retour-rs.git", rev = "903ffc94fbfddbe40fe407ec3aa5b4e33a415137", features = ["static-detour"] }
+winapi = { version = "0.3.6", features = ["consoleapi", "libloaderapi", "processenv", "winbase", "winuser", "memoryapi", "winnt"] }
+
+[build-dependencies]
+bindgen = "0.71.0"
+csv = "1.4.0"
+quote = "1.0.42"
+syn = { version = "2.0.111", features = ["visit"] }
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true
